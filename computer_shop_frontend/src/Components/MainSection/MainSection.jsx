@@ -1,9 +1,9 @@
 import React from 'react';
-import mousepointer from './multimediaSec/mouse-pointer.svg'
-import video from './multimediaSec/video.svg'
-import crosshair from './multimediaSec/crosshair.svg'
-import printer from './multimediaSec/printer.svg'
-import laptop from './multimediaSec/laptop.svg'
+import mousepointer from '../multimedia/mouse-pointer.svg'
+import video from '../multimedia/video.svg'
+import crosshair from '../multimedia/crosshair.svg'
+import printer from '../multimedia/printer.svg'
+import laptop from '../multimedia/laptop.svg'
 
 
 const MainSection = () => {

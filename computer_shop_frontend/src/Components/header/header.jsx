@@ -1,8 +1,8 @@
 import React from 'react';
-import airplay from './multimedia/airplay.svg'
-import search from './multimedia/search.svg'
-import shoppingcart from './multimedia/shopping-cart.svg'
-import Categorias from './Categorias/Categorias';
+import airplay from '../multimedia/airplay.svg'
+import search from '../multimedia/search.svg'
+import shoppingcart from '../multimedia/shopping-cart.svg'
+
 
 const Header = () => {
     return (
@@ -32,7 +32,7 @@ const Header = () => {
                 </div>
                 <div class="div_links">
                     <ul class="ul_nav_2">
-                        <a class="links"href={Categorias} target="noreferrer noopener"><li class="li_nav">Categorias</li></a>
+                        <a class="links"href="" target="noreferrer noopener"><li class="li_nav">Categorias</li></a>
                         <a class="links"href=""><li class="li_nav">Redes Sociales</li></a>
                     </ul>
                 </div>
