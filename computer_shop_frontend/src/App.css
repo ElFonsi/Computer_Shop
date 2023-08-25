@@ -5,7 +5,7 @@ https://colorhunt.co/palette/e3fdfdcbf1f5a6e3e971c9ce
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border:#464646 solid 1px */
+   /* border:#464646 solid 1px  */
 }
 body{
   font-family: 'Barlow', sans-serif;
@@ -35,13 +35,11 @@ body{
 
 footer{
   display: flex;
-  /* border-top: 4px solid #5bbbc4; */
   width: 100%;
   height: 150px;
   background-color: #71C9CE;
-  margin: 0px;
   padding-bottom: 0px;  
-  position:absolute;
+  position:relative;
   left:0px;
   bottom:0px;
   align-items: center;
@@ -96,18 +94,17 @@ footer{
 .navegador{
   display: flex;
   align-items: center;
-  width: 34%;
+  width: 32%;
 }
 
 .div_logo_titulo{
   display: flex;
   align-items: center;
-  margin: 1rem 1rem 1rem 1rem;
 }
 
 .div_logo_tienda{
   display: flex;
-  margin: 1rem;
+  margin:2.5rem;
 }
 
 
@@ -201,7 +198,7 @@ footer{
   display: flex;
   background-color: #71C9CE;
   width: 270px;
-  height: 100vb;
+  height:4000px;
   display:inline-block;
 }
 

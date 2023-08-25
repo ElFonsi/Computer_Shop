@@ -2,6 +2,7 @@ import React from 'react';
 import airplay from '../multimedia/airplay.svg'
 import search from '../multimedia/search.svg'
 import shoppingcart from '../multimedia/shopping-cart.svg'
+import {Link} from 'react-router-dom'
 
 
 const Header = () => {
@@ -27,16 +28,16 @@ const Header = () => {
             </head>
         <nav class="nav_main">
                 <div class="div_logo_titulo">
-                    <a class="links_img" href="index.html"><img id="Logo" src={airplay} alt="Logo"/></a>
+                    <Link to="/" class="links_img"><img id="Logo" src={airplay} alt="Logo"/></Link>
                     <h1 id="title">Computer Shop</h1>
                 </div>
                 <div class="div_links">
                     <ul class="ul_nav_2">
-                        <a class="links"href="" target="noreferrer noopener"><li class="li_nav">Categorias</li></a>
+                        <Link to='/Categorias' class="links" target=""><li class="li_nav">Categorias</li></Link>
                         <a class="links"href=""><li class="li_nav">Redes Sociales</li></a>
                     </ul>
                 </div>
-                <div class="navegador">
+                <div class="navegador"> 
                     <img src={search} alt="" id="logo_buscar"/>
                     <input id="buscar" type="text" placeholder="Buscar..."/>
                 </div>
