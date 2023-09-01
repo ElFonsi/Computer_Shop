@@ -43,8 +43,8 @@ const Header = () => {
                 </div>
                 <div class="div_links">
                     <ul class="ul_nav">
-                        <a class="links"href=""><li class="li_nav">Ingresar</li></a>
-                        <a class="links"href=""><li class="li_nav">Registrarse</li></a>
+                        <Link to="/Login" class="links" target=""><li class="li_nav">Ingresar</li></Link>
+                        <Link to="/Singin" class="links" target=""><li class="li_nav">Registrarse</li></Link>
                     </ul>
                 </div>
                 <div class="div_logo_tienda">
