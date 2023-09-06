@@ -1,16 +1,6 @@
-body {
-    font-family: 'Barlow', sans-serif;
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Noto Serif Tamil', serif;
-    background-color: #A6E3E9;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+
 .signup-container {
+    margin-top: 80px;
     background-color: #71C9CE;
     padding: 20px;
     border-radius: 5px;

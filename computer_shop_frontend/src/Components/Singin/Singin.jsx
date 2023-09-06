@@ -21,6 +21,7 @@ const Singin = () => {
                 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@200&display=swap" rel="stylesheet"/>
                 <title>Computer shop</title>
             </head>
+    <section id="section_body">
             <div class="signup-container">
         <h2>Registrarse</h2>
         <form action="procesar-registro.php" method="POST">
@@ -39,6 +40,8 @@ const Singin = () => {
             <button type="submit">Registrarse</button>
         </form>
     </div>
+
+    </section>        
         </div>
     );
 };

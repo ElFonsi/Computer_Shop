@@ -22,8 +22,10 @@ const Login = () => {
                 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Tamil:wght@200&display=swap" rel="stylesheet"/>
                 <title>Computer shop</title>
             </head>
+
+        <section id="section_body">
                     <div class="login-container">
-                <h2>Iniciar sesión</h2>
+                        <h2>Iniciar Sesion</h2>
                 <form action="procesar-login.php" method="POST">
                     <div class="form-group">
                         <label for="username">Usuario:</label>
@@ -36,7 +38,9 @@ const Login = () => {
                     <button type="submit">Iniciar sesión</button>
                 </form>
             </div>
+        </section>
         </div>
+
     );
 };
 
