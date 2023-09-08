@@ -27,11 +27,13 @@ const Categorias = () => {
                 <div class="div_img_menu">
                     <img class="imgs_menu" src={laptop} alt=""/>
                     <h4 class="descripcion_prod">descripción de la imagen</h4>
+                    <h5 class="precio">10$</h5>
                     <a class="agregar_producto" href=""><div class="Agregar"><h5>Agregar</h5></div></a>
                 </div>
                 <div class="div_img_menu">
                     <img class="imgs_menu" src={laptop} alt=""/>
                     <h4 class="descripcion_prod">descripcion de la imagen</h4>
+                    <h5 class="precio">10$</h5>
                     <a class="agregar_producto" href=""><div class="Agregar"><h5>Agregar</h5></div></a>
                 </div>
 

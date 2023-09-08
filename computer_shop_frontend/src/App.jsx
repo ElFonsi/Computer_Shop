@@ -6,6 +6,7 @@ import Categorias from './Components/Categorias/Categorias';
 import MainSection from './Components/MainSection/MainSection';
 import Login from './Components/Login/Login'
 import Singin from './Components/Singin/Singin'
+import Carrito from './Components/Carrito/Carrito'
 
 
 function App() {
@@ -19,24 +20,35 @@ function App() {
                 <Footer/>
               </>}
               />
+
               <Route path='/Categorias' element={<>
                 <Header/>
                 <Categorias/>
                 <Footer/>
               </>}
               />
+
               <Route path='/Login' element={<>
                 <Header/>
                 <Login/>
                 <Footer/>
               </>}
               />
+
+              <Route path='/Carrito' element={<>
+                <Header/>
+                <Carrito/>
+                <Footer/>
+              </>}
+              />
+
               <Route path='/Singin' element={<>
                 <Header/>
                 <Singin/>
                 <Footer/>
               </>}
               />
+              
               
             </Routes>
       </BrowserRouter>

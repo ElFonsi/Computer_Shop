@@ -48,8 +48,8 @@ const Header = () => {
                     </ul>
                 </div>
                 <div class="div_logo_tienda">
-                    <a class="links_img" href=""><img id="Tienda" src={shoppingcart} alt="Tienda"/></a>
-                    <h4 id="Tienda_title">Tienda</h4>
+                    <Link to="/Carrito" class="links_img"><img id="Tienda" src={shoppingcart} alt="Tienda"/></Link>
+                    <h4 id="Tienda_title">Carrito</h4>
                 </div>
             </nav>
             
