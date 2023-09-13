@@ -32,3 +32,50 @@
     box-shadow: black 2px 2px 7px;
     border: 1px solid #464646;
 }
+
+._producto{
+    display: flex;
+    justify-content: center;
+    margin: 0px 5px 0px 5px;
+    width: 35px;
+    height: 30px;
+    background: linear-gradient(to right, #43b1e0, #77bfc5);
+    border-radius: 10px;
+  }
+
+#eliminar{
+    display: flex;
+    justify-content: center;
+    margin: 0px 10px 0px 10px;
+    width: 35px;
+    height: 30px;
+    background: linear-gradient(to right, #43b1e0, #77bfc5);
+    border-radius: 1000px;
+}
+
+#clasificacion{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;  
+}
+
+.clas{
+    margin: auto;
+}
+
+#nombre_prod{
+    width: 200px;
+}
+
+#price{
+    width: 160px;
+    margin-right: 30px;
+}
+
+#price_total{
+    width: 80px;
+    padding:5px;
+    background-color: #A6E3E9;
+    border-radius: 3px;
+}

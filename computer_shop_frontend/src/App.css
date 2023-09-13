@@ -5,7 +5,7 @@ https://colorhunt.co/palette/e3fdfdcbf1f5a6e3e971c9ce
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-     /* border:#464646 solid 1px    */
+      /* border:#464646 solid 1px      */
 }
 body{
   font-family: 'Barlow', sans-serif;
@@ -183,7 +183,7 @@ footer{
   margin: 3px 10px 1px 1px;
   width: 75px;
 }
-.Links_PCs:hover, #Logo:hover, #Tienda:hover, .Agregar:hover{
+.Links_PCs:hover, #Logo:hover, #Tienda:hover, .Agregar, ._producto, #eliminar:hover{
   transition: 200ms;
   transform:scale(1.05)
 }

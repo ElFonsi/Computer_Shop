@@ -8,10 +8,10 @@
     width: 300px;
 }
 .signup-container h2 {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 label {
     display: block;
@@ -28,7 +28,7 @@ input[type="password"] {
 button {
     background-color: #3795BD;
     color: #fff;
-    padding: 10px 15px;
+    padding: 10px 10px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
