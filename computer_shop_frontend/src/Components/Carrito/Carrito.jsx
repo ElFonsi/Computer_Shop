@@ -4,8 +4,25 @@ import airplay from '../multimedia/airplay.svg'
 import minus from '../multimedia/minus.svg'
 import plus from '../multimedia/plus.svg'
 import xcircle from '../multimedia/xcircle.svg'
+import React, { useState } from 'react';
 
-const Carrito = () => {
+ function Carrito({carrito}) {
+        const [count, setCount] = useState(1);
+
+        const incrementarCant = () => {
+          setCount(count + 1);
+        };
+      
+        const decrementarCant = () => {
+          setCount(count - 1);
+
+          if (count <=1 ){
+            setCount(count)
+          }
+        };
+
+        
+
     return (
 
         <section id="section_body">
@@ -14,21 +31,26 @@ const Carrito = () => {
                 <div id="clasificacion"> 
                 <h4 class="clas">Imagen</h4><h4 class="clas">Nombre</h4><h4 class="clas">Precio</h4><h4 class="clas">Cantidad</h4><h4 class="clas">Subtotal</h4><h4 class="clas">Eiminar</h4>
                 </div>
-                <div class="objetos_carrito">
 
-                    <img class="imgs_menu" src={laptop} alt=""/>
-                    <h4 id="nombre_prod">Nombre</h4>
-                    <h5 id="price">10$</h5>
-                    <a class="agregar_producto" href=""><div class="_producto"><img src={plus} alt=""/></div></a>
-                    <h5 id="price_total">0$</h5>
-                    <a class="agregar_producto" href=""><div class="_producto"><img src={minus} alt=""/></div></a>
+                {carrito.map((producto, index) => (
+                <div class="objetos_carrito" key={index}>
+                    <div id='imgs_menu'><img class="imgs_carrito" src={laptop} alt=""/></div>
+                    <h4 id="nombre_prod">{producto.nombre_producto}</h4>
+                    <h5 id="price">${producto.precio_producto}</h5>
+                    <div id='ct'>
+                    <button class="botonCant" onClick={incrementarCant}><div class="_producto"><img src={plus} alt=""/></div></button>
+                    <h5 id="price_total">{count}</h5>
+                    <button class="botonCant" onClick={decrementarCant}><div class="_producto"><img src={minus} alt=""/></div></button>
+                    </div>
+                    <div id="Subtotal">$</div>
                     <div id="eliminar"><img src={xcircle} alt=""/></div>
 
                 </div>
+                ))}
             </div>
 
         </section>
     );
-};
+}
 
 export default Carrito;

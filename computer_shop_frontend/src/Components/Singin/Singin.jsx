@@ -41,7 +41,7 @@ const Singin = () => {
                 <label for="password">Contraseña repetida:</label>
                 <input type="password" id="password" name="password" required/>
             </div>
-            <button type="submit">Registrarse</button>
+            <button class="boton" type="submit">Registrarse</button>
         </form>
     </div>
 

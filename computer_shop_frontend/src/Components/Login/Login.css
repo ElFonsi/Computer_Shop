@@ -30,13 +30,13 @@ input[type="password"] {
     border-radius: 3px;
     background-color: #A6E3E9;
 }
-button {
+.boton {
     background-color: #3795BD;
     padding: 10px 15px;
     border: none;
     border-radius: 3px;
     cursor: pointer;
 }
-button:hover {
+.boton:hover {
     background-color: #0056b3;
 }
