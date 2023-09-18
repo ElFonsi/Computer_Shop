@@ -5,8 +5,9 @@ import minus from '../multimedia/minus.svg'
 import plus from '../multimedia/plus.svg'
 import xcircle from '../multimedia/xcircle.svg'
 import React, { useState } from 'react';
+import mock from '../Mock/mock.json';
 
- function Carrito({carrito}) {
+ function Carrito({carrito, eliminarDelCarrito}) {
         const [count, setCount] = useState(1);
 
         const incrementarCant = () => {
@@ -20,8 +21,6 @@ import React, { useState } from 'react';
             setCount(count)
           }
         };
-
-        
 
     return (
 
@@ -42,8 +41,9 @@ import React, { useState } from 'react';
                     <h5 id="price_total">{count}</h5>
                     <button class="botonCant" onClick={decrementarCant}><div class="_producto"><img src={minus} alt=""/></div></button>
                     </div>
-                    <div id="Subtotal">$</div>
-                    <div id="eliminar"><img src={xcircle} alt=""/></div>
+                    <div id="Subtotal">${producto.precio_producto*count}</div>
+
+                    <button id="botonElim" onClick={() => eliminarDelCarrito(producto)}><div id="eliminar"><img src={xcircle} alt=""/></div></button>
 
                 </div>
                 ))}

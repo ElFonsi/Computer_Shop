@@ -1,38 +1,13 @@
-import React, { Component } from 'react';
+import React, { useState} from 'react';
 import laptop from '../multimedia/laptop.svg'
 import airplay from '../multimedia/airplay.svg'
 import Carrito from '../Carrito/Carrito';
+import mock from '../Mock/mock.json';
 
 
-class Categorias extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            productos: [], // Arreglo para almacenar los productos
-            carrito: [],   // Arreglo para almacenar los productos en el carrito
-        };
-
-    }
-    componentDidMount() {
-        // Importa los datos del archivo JSON (puedes ajustar la ruta según tu proyecto)
-        import('../Mock/mock.json')
-          .then((data) => {
-            this.setState({ productos: data.default });
-          })
-          .catch((error) => {
-            console.error('Error al cargar los datos:', error);
-          });
-      }
+function Categorias({ agregarAlCarrito, carrito }) {
+    const [productos] = useState(mock);
     
-      agregarAlCarrito = (producto) => {
-        // Agrega el producto al carrito
-        this.setState((prevState) => ({
-          carrito: [...prevState.carrito, producto],
-        }));
-      };
-    
-      render() {
-        const { productos, carrito } = this.state;
     return (
         <div>
             <main id="categorias_main">
@@ -54,15 +29,14 @@ class Categorias extends Component {
 
                 <h2>Productos</h2>
                 {productos.map((producto) => (
-                <div class="div_img_menu" key={producto.id_producto}>
+                <div class="div_img_menu" key={producto.id}>
                     <img class="imgs_menu" src={laptop} alt=""/>
                     <h4 class="descripcion_prod">{producto.nombre_producto}</h4>
                     <h5 class="precio">${producto.precio_producto}</h5>
-                    <button class="agregar_producto" onClick={() => this.agregarAlCarrito(producto)}><div class="Agregar"><h5>Agregar</h5></div></button>                 
+                    <button class="agregar_producto" onClick={() => agregarAlCarrito(producto)}><div class="Agregar"><h5>Agregar</h5></div></button>                 
                 </div>
 
                 ))}
-                <Carrito carrito={carrito} /> 
 
                 
             </div>
@@ -72,9 +46,12 @@ class Categorias extends Component {
         </section>
 
         </main>
+
+
         </div>
+
         );
     }
-};
+
 
 export default Categorias;

@@ -1,4 +1,5 @@
 import './App.css';
+import React, { useState } from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Header from './Components/header/header.jsx';
 import Footer from './Components/Footer/Footer.jsx';
@@ -10,6 +11,27 @@ import Carrito from './Components/Carrito/Carrito'
 
 
 function App() {
+
+  const [carrito, setCarrito] = useState([]);
+
+  const agregarAlCarrito = (producto) => {
+    const productoExistente = carrito.find((item) => item.id === producto.id);
+
+    if (productoExistente) {
+      window.alert("Este producto ya esta agregado al carrito")
+      return;
+    }
+
+    // Si el producto no está en el carrito, agregarlo
+    setCarrito([...carrito, producto]);
+  };
+
+  const eliminarDelCarrito = (producto) => {
+    const nuevoCarrito = carrito.filter((p) => p.id !== producto.id);
+    setCarrito(nuevoCarrito);
+  };
+
+
   return (
     <div className="App">
         <BrowserRouter>
@@ -23,7 +45,7 @@ function App() {
 
               <Route path='/Categorias' element={<>
                 <Header/>
-                <Categorias/>
+                <Categorias agregarAlCarrito={agregarAlCarrito}/>
                 <Footer/>
               </>}
               />
@@ -31,13 +53,12 @@ function App() {
               <Route path='/Login' element={<>
                 <Header/>
                 <Login/>
-                <Footer/>
               </>}
               />
 
               <Route path='/Carrito' element={<>
                 <Header/>
-                <Carrito/>
+                <Carrito carrito={carrito }eliminarDelCarrito={eliminarDelCarrito} /> 
                 <Footer/>
               </>}
               />
@@ -45,7 +66,6 @@ function App() {
               <Route path='/Singin' element={<>
                 <Header/>
                 <Singin/>
-                <Footer/>
               </>}
               />
               

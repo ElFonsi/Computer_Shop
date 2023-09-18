@@ -4,6 +4,7 @@ import video from '../multimedia/video.svg'
 import crosshair from '../multimedia/crosshair.svg'
 import printer from '../multimedia/printer.svg'
 import laptop from '../multimedia/laptop.svg'
+import principal from '../multimedia/principal.png'
 
 
 const MainSection = () => {
@@ -11,7 +12,7 @@ const MainSection = () => {
                 <div>
                     <main>
                 <section>
-                    <img id="img_principal" src="" alt="principal"/>
+                    <img id="img_principal" src={principal} alt="principal"/>
                 </section>
             </main>
             <section id="PC_armadas">
