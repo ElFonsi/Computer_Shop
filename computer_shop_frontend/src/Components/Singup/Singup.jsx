@@ -1,5 +1,5 @@
 import React from 'react';
-import './Singin.css'
+import './Singup.css'
 const Singin = () => {
     return (
         <div>

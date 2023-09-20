@@ -7,9 +7,9 @@
         "count":0
     },
     {
-    "id":2,
-    "nombre_producto":"Memoria RAM",
-    "precio_producto":100,
-    "count":0
+        "id":2,
+        "nombre_producto":"Memoria RAM",
+        "precio_producto":100,
+        "count":0
     }
 ]

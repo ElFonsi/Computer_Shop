@@ -6,13 +6,27 @@ import Footer from './Components/Footer/Footer.jsx';
 import Categorias from './Components/Categorias/Categorias';
 import MainSection from './Components/MainSection/MainSection';
 import Login from './Components/Login/Login'
-import Singin from './Components/Singin/Singin'
+import Singup from './Components/Singup/Singup'
 import Carrito from './Components/Carrito/Carrito'
 
 
 function App() {
 
   const [carrito, setCarrito] = useState([]);
+
+  // var [count, setCount] = useState(1);
+        const incrementarCant = (producto) => {
+          producto.count += 1
+       };
+      
+         const decrementarCant = (producto) => {
+          producto.count -= 1
+
+          // if (producto.count<=1){
+          //    producto.count=producto.count
+          // }
+         };
+
 
   const agregarAlCarrito = (producto) => {
     const productoExistente = carrito.find((item) => item.id === producto.id);
@@ -57,14 +71,14 @@ function App() {
 
               <Route path='/Carrito' element={<>
                 <Header/>
-                <Carrito carrito={carrito }eliminarDelCarrito={eliminarDelCarrito} /> 
+                <Carrito carrito={carrito }eliminarDelCarrito={eliminarDelCarrito} decrementarCant={decrementarCant}incrementarCant={incrementarCant} /> 
                 <Footer/>
               </>}
               />
 
-              <Route path='/Singin' element={<>
+              <Route path='/Singup' element={<>
                 <Header/>
-                <Singin/>
+                <Singup/>
               </>}
               />
               

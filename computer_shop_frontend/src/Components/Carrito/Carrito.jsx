@@ -6,41 +6,29 @@ import plus from '../multimedia/plus.svg'
 import xcircle from '../multimedia/xcircle.svg'
 import React, { useState } from 'react';
 
- function Carrito({carrito, eliminarDelCarrito, producto}) {
-        const [count, setCount] = useState(1);
-
-        const incrementarCant = () => {
-          setCount(count =producto.count + 1);
-       };
-      
-         const decrementarCant = () => {
-          setCount(count =producto.count - 1);
-
-          if (count <=1 ){
-             setCount(count=producto.count)
-          }
-         };
+ function Carrito({carrito, eliminarDelCarrito, decrementarCant, incrementarCant}) {
+        
 
     return (
 
         <section id="section_body">
-            <div class="carrito">
+            <div className="carrito">
                 <h1 id="cart_titulo">Carrito de compras</h1>
                 <div id="clasificacion"> 
-                <h4 class="clas">Imagen</h4><h4 class="clas">Nombre</h4><h4 class="clas">Precio</h4><h4 class="clas">Cantidad</h4><h4 class="clas">Subtotal</h4><h4 class="clas">Eiminar</h4>
+                <h4 className="clas">Imagen</h4><h4 className="clas">Nombre</h4><h4 className="clas">Precio</h4><h4 className="clas">Cantidad</h4><h4 className="clas">Subtotal</h4><h4 className="clas">Eiminar</h4>
                 </div>
 
                 {carrito.map((producto, index) => (
-                <div class="objetos_carrito" key={index}>
-                    <div id='imgs_menu'><img class="imgs_carrito" src={laptop} alt=""/></div>
+                <div className="objetos_carrito" key={index}>
+                    <div id='imgs_menu'><img className="imgs_carrito" src={laptop} alt=""/></div>
                     <h4 id="nombre_prod">{producto.nombre_producto}</h4>
                     <h5 id="price">${producto.precio_producto}</h5>
                     <div id='ct'>
-                    <button class="botonCant" onClick={incrementarCant}><div class="_producto"><img src={plus} alt=""/></div></button>
-                    <h5 id="price_total">{count}</h5>
-                    <button class="botonCant" onClick={decrementarCant}><div class="_producto"><img src={minus} alt=""/></div></button>
+                    <button className="botonCant" onClick={incrementarCant(producto)}><div className="_producto"><img src={plus} alt=""/></div></button>
+                    <h5 id="price_total">{producto.count}</h5>
+                    <button className="botonCant" onClick={decrementarCant(producto)}><div className="_producto"><img src={minus} alt=""/></div></button>
                     </div>
-                    <div id="Subtotal">${producto.precio_producto*count}</div>
+                    <div id="Subtotal">${producto.precio_producto*producto.count}</div>
 
                     <button id="botonElim" onClick={() => eliminarDelCarrito(producto)}><div id="eliminar"><img src={xcircle} alt=""/></div></button>
 

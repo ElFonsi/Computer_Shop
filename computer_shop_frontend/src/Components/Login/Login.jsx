@@ -26,7 +26,7 @@ const Login = () => {
         <section id="section_body">
                     <div class="login-container">
                         <h2>Iniciar Sesion</h2>
-                <form action="procesar-login.php" method="POST">
+                <form action="procesar-login.php" method="">
                     <div class="form-group">
                         <label for="username">Usuario:</label>
                         <input type="text" id="username" name="username" required/>
