@@ -1,11 +1,10 @@
 import React, { useState} from 'react';
 import laptop from '../multimedia/laptop.svg'
 import airplay from '../multimedia/airplay.svg'
-import Carrito from '../Carrito/Carrito';
 import mock from '../Mock/mock.json';
 
 
-function Categorias({ agregarAlCarrito, carrito }) {
+function Categorias({ agregarAlCarrito }) {
     const [productos] = useState(mock);
     
     return (

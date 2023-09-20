@@ -5,22 +5,21 @@ import minus from '../multimedia/minus.svg'
 import plus from '../multimedia/plus.svg'
 import xcircle from '../multimedia/xcircle.svg'
 import React, { useState } from 'react';
-import mock from '../Mock/mock.json';
 
- function Carrito({carrito, eliminarDelCarrito}) {
+ function Carrito({carrito, eliminarDelCarrito, producto}) {
         const [count, setCount] = useState(1);
 
         const incrementarCant = () => {
-          setCount(count + 1);
-        };
+          setCount(count =producto.count + 1);
+       };
       
-        const decrementarCant = () => {
-          setCount(count - 1);
+         const decrementarCant = () => {
+          setCount(count =producto.count - 1);
 
           if (count <=1 ){
-            setCount(count)
+             setCount(count=producto.count)
           }
-        };
+         };
 
     return (
 

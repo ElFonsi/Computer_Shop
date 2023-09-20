@@ -22,7 +22,6 @@ function App() {
       return;
     }
 
-    // Si el producto no está en el carrito, agregarlo
     setCarrito([...carrito, producto]);
   };
 
