@@ -1,12 +1,25 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import laptop from '../multimedia/laptop.svg'
 import airplay from '../multimedia/airplay.svg'
 import mock from '../Mock/mock.json';
+import axios from 'axios'
 
 
 function Categorias({ agregarAlCarrito }) {
-    const [productos] = useState(mock);
-    
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3310/productos');
+                setData(response.data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return (
         <div>
             <main id="categorias_main">
@@ -27,11 +40,11 @@ function Categorias({ agregarAlCarrito }) {
             <div id="Content">
 
                 <h2>Productos</h2>
-                {productos.map((producto) => (
+                {data.map((producto) => (
                 <div class="div_img_menu" key={producto.id}>
                     <img class="imgs_menu" src={laptop} alt=""/>
-                    <h4 class="descripcion_prod">{producto.nombre_producto}</h4>
-                    <h5 class="precio">${producto.precio_producto}</h5>
+                    <h4 class="descripcion_prod">{producto.modelo}</h4>
+                    <h5 class="precio">${producto.precio}</h5>
                     <button class="agregar_producto" onClick={() => agregarAlCarrito(producto)}><div class="Agregar"><h5>Agregar</h5></div></button>                 
                 </div>
 
