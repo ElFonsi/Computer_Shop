@@ -6,8 +6,17 @@ import plus from '../multimedia/plus.svg'
 import xcircle from '../multimedia/xcircle.svg'
 import React, { useState } from 'react';
 
- function Carrito({carrito, eliminarDelCarrito, decrementarCant, incrementarCant}) {
+ function Carrito({carrito, eliminarDelCarrito, actualizarCantidad}) {
         
+    const incrementarCantidad = (producto) => {
+        actualizarCantidad(producto.id, producto.count + 1);
+      };
+    
+      const decrementarCantidad = (producto) => {
+        if (producto.count > 1) {
+          actualizarCantidad(producto.id, producto.cantidad - 1);
+        }
+      };
 
     return (
 
@@ -24,9 +33,9 @@ import React, { useState } from 'react';
                     <h4 id="nombre_prod">{producto.nombre_producto}</h4>
                     <h5 id="price">${producto.precio_producto}</h5>
                     <div id='ct'>
-                    <button className="botonCant" onClick={incrementarCant(producto)}><div className="_producto"><img src={plus} alt=""/></div></button>
+                    <button className="botonCant" onClick={incrementarCantidad(producto)}><div className="_producto"><img src={plus} alt=""/></div></button>
                     <h5 id="price_total">{producto.count}</h5>
-                    <button className="botonCant" onClick={decrementarCant(producto)}><div className="_producto"><img src={minus} alt=""/></div></button>
+                    <button className="botonCant" onClick={decrementarCantidad(producto)}><div className="_producto"><img src={minus} alt=""/></div></button>
                     </div>
                     <div id="Subtotal">${producto.precio_producto*producto.count}</div>
 

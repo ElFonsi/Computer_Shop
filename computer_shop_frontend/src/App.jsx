@@ -13,19 +13,18 @@ import Carrito from './Components/Carrito/Carrito'
 function App() {
 
   const [carrito, setCarrito] = useState([]);
-
   // var [count, setCount] = useState(1);
-        const incrementarCant = (producto) => {
-          producto.count += 1
-       };
+      //   const incrementarCant = (producto) => {
+      //     producto.count =producto.count + 1
+      //  };
       
-         const decrementarCant = (producto) => {
-          producto.count -= 1
+      //    const decrementarCant = (producto) => {
+      //     producto.count =producto.count- 1
 
-          // if (producto.count<=1){
-          //    producto.count=producto.count
-          // }
-         };
+      //     if (producto.count<=1){
+      //        producto.count=producto.count
+      //    }
+      //    };
 
 
   const agregarAlCarrito = (producto) => {
@@ -41,6 +40,14 @@ function App() {
 
   const eliminarDelCarrito = (producto) => {
     const nuevoCarrito = carrito.filter((p) => p.id !== producto.id);
+    setCarrito(nuevoCarrito);
+  };
+
+
+  const actualizarCantidad = (productoId, nuevaCantidad) => {
+    const nuevoCarrito = carrito.map((item) =>
+      item.id === productoId ? { ...item, cantidad: nuevaCantidad } : item
+    );
     setCarrito(nuevoCarrito);
   };
 
@@ -71,8 +78,7 @@ function App() {
 
               <Route path='/Carrito' element={<>
                 <Header/>
-                <Carrito carrito={carrito }eliminarDelCarrito={eliminarDelCarrito} decrementarCant={decrementarCant}incrementarCant={incrementarCant} /> 
-                <Footer/>
+                <Carrito carrito={carrito }eliminarDelCarrito={eliminarDelCarrito} actualizarCantidad={actualizarCantidad} /> 
               </>}
               />
 

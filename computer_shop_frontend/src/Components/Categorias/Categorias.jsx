@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import laptop from '../multimedia/laptop.svg'
 import airplay from '../multimedia/airplay.svg'
-import mock from '../Mock/mock.json';
+// import mock from '../Mock/mock.json';
 import axios from 'axios'
 
 
@@ -43,14 +43,12 @@ function Categorias({ agregarAlCarrito }) {
                 {data.map((producto) => (
                 <div class="div_img_menu" key={producto.id}>
                     <img class="imgs_menu" src={laptop} alt=""/>
-                    <h4 class="descripcion_prod">{producto.modelo}</h4>
+                    <h6>{producto.nombre}</h6>
+                    <h4 class="descripcion_prod">{producto.descripcion}</h4>
                     <h5 class="precio">${producto.precio}</h5>
                     <button class="agregar_producto" onClick={() => agregarAlCarrito(producto)}><div class="Agregar"><h5>Agregar</h5></div></button>                 
                 </div>
-
                 ))}
-
-                
             </div>
 
 
