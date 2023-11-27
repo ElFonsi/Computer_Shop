@@ -8,6 +8,7 @@ import MainSection from './Components/MainSection/MainSection';
 import Login from './Components/Login/Login'
 import Singup from './Components/Singup/Singup'
 import Carrito from './Components/Carrito/Carrito'
+import Resumen from './Components/resumen/resumen.jsx'
 
 
 function App() {
@@ -26,7 +27,10 @@ function App() {
   //        }
   //        };
 
-  
+  const vaciarCarrito = () => {
+    setCarrito([])
+  }
+
   const agregarAlCarrito = (producto) => {
     const productoExistente = carrito.find((item) => item.id === producto.id);
 
@@ -109,13 +113,20 @@ return carrito.reduce((total, producto)=> total + calcularSubtotal(producto), 0)
                 incrementarCant={incrementarCant} 
                 decrementarCant={decrementarCant}
                 calcularSubtotal={calcularSubtotal}
-                calcularSubtotalTotal={calcularSubtotalTotal} /> 
+                calcularSubtotalTotal={calcularSubtotalTotal}
+                vaciarCarrito={vaciarCarrito}/> 
               </>}
               />
 
               <Route path='/Singup' element={<>
                 <Header/>
                 <Singup/>
+              </>}
+              />
+
+              <Route path='/resumen' element={<>
+                <Header/>
+                <Resumen></Resumen>
               </>}
               />
               

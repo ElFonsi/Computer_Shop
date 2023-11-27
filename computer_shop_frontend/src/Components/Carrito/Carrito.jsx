@@ -1,13 +1,42 @@
 import './Carrito.css'
 import laptop from '../multimedia/laptop.svg'
-import airplay from '../multimedia/airplay.svg'
+// import airplay from '../multimedia/airplay.svg'
 import minus from '../multimedia/minus.svg'
 import plus from '../multimedia/plus.svg'
 import xcircle from '../multimedia/xcircle.svg'
-import React, { useState } from 'react';
+import axios from 'axios'
+// import React, { useState } from 'react';
 
- function Carrito({carrito, eliminarDelCarrito, incrementarCant, decrementarCant, calcularSubtotal, calcularSubtotalTotal }) {
-        
+function Carrito({carrito, eliminarDelCarrito, incrementarCant, decrementarCant, calcularSubtotal, calcularSubtotalTotal, vaciarCarrito}) {
+
+  // const handleComprar = async () => {
+  //   try {
+  //     const response = await axios.post('http://localhost:8080/comprar', { productos: carrito });
+  //     const resumenCompra = response.data.resumenCompra;
+  //     onCompraExitosa(resumenCompra);
+  //   } catch (error) {
+  //     console.error('Error al comprar productos:', error);
+  //   }
+  // } 
+
+const CarroFiltrado = Object.values(carrito).map(({ id, quantity }) => ({ id, quantity }));
+  
+  const cartJson = JSON.stringify(CarroFiltrado);
+
+  const handleCarrito = async () => {
+      if (cartJson !== "[]") {
+          try {
+              await axios.post('http://localhost:8080/comprar', {cartJson});
+              alert('Articulos comprados exitosamente');
+              vaciarCarrito()
+          } catch (err) {
+              alert('Error al realizar la compra');
+              console.log("Error al registrar carrito: ", err)
+          }    
+      } else {
+          alert('Seleccionar articulos');
+      }
+  };
 
     return (
 
@@ -38,7 +67,7 @@ import React, { useState } from 'react';
 
                 <h3>El total de tu compra en el carrito de Computer Shop es: ${calcularSubtotalTotal().toFixed(2)} </h3>
                
-                <button id="enviar">Comprar</button>
+                <button id="enviar" onClick={handleCarrito}>Comprar</button>
 
               </div>
                 

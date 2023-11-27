@@ -15,8 +15,10 @@ const Singin = () => {
       try {
         const response = await axios.post('http://localhost:8080/registrarse', usuario);
         console.log(response.data); // Puedes manejar la respuesta según tus necesidades
+        window.alert('Usuario registrado correctamente')
       } catch (error) {
         console.error('Error al registrar usuario:', error);
+        window.alert('Las contraseñas no coinciden')
       }
     };
   
@@ -63,12 +65,12 @@ const Singin = () => {
             <div class="form-group">
                 <label for="password">Contraseña:</label>
                 {/* <input type="password" id="password" name="password" required/> */}
-                <input type="password" name="contraseña" placeholder="Contraseña" onChange={handleChange} />
+                <input required type="password" name="contraseña" placeholder="Contraseña" onChange={handleChange} />
             </div>
             <div class="form-group">
                 <label for="password">Contraseña repetida:</label>
                 {/* <input type="password" id="password" name="password" required/> */}
-                <input type="password" name="confirmPassword" placeholder="Confirmar Contraseña" onChange={handleChange} />
+                <input required type="password" name="confirmPassword" placeholder="Confirmar Contraseña" onChange={handleChange} />
             </div>
             <button class="boton" onClick={handleRegister}>Registrarse</button>
         </div>
