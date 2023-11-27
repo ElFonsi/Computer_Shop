@@ -6,17 +6,8 @@ import plus from '../multimedia/plus.svg'
 import xcircle from '../multimedia/xcircle.svg'
 import React, { useState } from 'react';
 
- function Carrito({carrito, eliminarDelCarrito, actualizarCantidad}) {
+ function Carrito({carrito, eliminarDelCarrito, incrementarCant, decrementarCant, calcularSubtotal, calcularSubtotalTotal }) {
         
-    const incrementarCantidad = (producto) => {
-        actualizarCantidad(producto.id, producto.count + 1);
-      };
-    
-      const decrementarCantidad = (producto) => {
-        if (producto.count > 1) {
-          actualizarCantidad(producto.id, producto.cantidad - 1);
-        }
-      };
 
     return (
 
@@ -30,19 +21,27 @@ import React, { useState } from 'react';
                 {carrito.map((producto, index) => (
                 <div className="objetos_carrito" key={index}>
                     <div id='imgs_menu'><img className="imgs_carrito" src={laptop} alt=""/></div>
-                    <h4 id="nombre_prod">{producto.nombre_producto}</h4>
-                    <h5 id="price">${producto.precio_producto}</h5>
+                    <h4 id="nombre_prod">{producto.nombre}</h4>
+                    <h5 id="price">${producto.precio}</h5>
                     <div id='ct'>
-                    <button className="botonCant" onClick={incrementarCantidad(producto)}><div className="_producto"><img src={plus} alt=""/></div></button>
-                    <h5 id="price_total">{producto.count}</h5>
-                    <button className="botonCant" onClick={decrementarCantidad(producto)}><div className="_producto"><img src={minus} alt=""/></div></button>
+                    <button className="botonCant" onClick={()=> incrementarCant(producto.id)}><div className="_producto"><img src={plus} alt=""/></div></button> 
+                    <h5 id="price_total">{producto.cantidad}</h5> 
+                    <button className="botonCant" onClick={()=> decrementarCant(producto.id)}><div className="_producto"><img src={minus} alt=""/></div></button>
                     </div>
-                    <div id="Subtotal">${producto.precio_producto*producto.count}</div>
-
+                    <div id="Subtotal">${calcularSubtotal(producto).toFixed(2)}</div>
                     <button id="botonElim" onClick={() => eliminarDelCarrito(producto)}><div id="eliminar"><img src={xcircle} alt=""/></div></button>
 
                 </div>
                 ))}
+                <br />
+              <div id="cont_carrito">
+
+                <h3>El total de tu compra en el carrito de Computer Shop es: ${calcularSubtotalTotal().toFixed(2)} </h3>
+               
+                <button id="enviar">Comprar</button>
+
+              </div>
+                
             </div>
 
         </section>

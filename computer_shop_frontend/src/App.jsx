@@ -14,19 +14,19 @@ function App() {
 
   const [carrito, setCarrito] = useState([]);
   // var [count, setCount] = useState(1);
-      //   const incrementarCant = (producto) => {
-      //     producto.count =producto.count + 1
-      //  };
+  //       const incrementarCant = (producto) => {
+  //         producto.count =producto.count + 1
+  //      };
       
-      //    const decrementarCant = (producto) => {
-      //     producto.count =producto.count- 1
+  //        const decrementarCant = (producto) => {
+  //         producto.count =producto.count- 1
 
-      //     if (producto.count<=1){
-      //        producto.count=producto.count
-      //    }
-      //    };
+  //         if (producto.count<=1){
+  //            producto.count=producto.count
+  //        }
+  //        };
 
-
+  
   const agregarAlCarrito = (producto) => {
     const productoExistente = carrito.find((item) => item.id === producto.id);
 
@@ -50,6 +50,31 @@ function App() {
     );
     setCarrito(nuevoCarrito);
   };
+
+
+  const incrementarCant = (id) => {
+    const nuevoCarrito= carrito.map((producto) =>
+    producto.id === id? {...producto, cantidad:producto.cantidad +1} : producto
+)
+setCarrito(nuevoCarrito);
+};
+
+const decrementarCant = (id) => {
+  const nuevoCarrito= carrito.map((producto) =>
+  producto.id === id && producto.cantidad > 1 ?
+  {...producto, cantidad:producto.cantidad -1} : producto
+)
+setCarrito(nuevoCarrito);
+};
+
+const calcularSubtotal = (producto) => {
+return producto.cantidad * producto.precio;
+}
+
+const calcularSubtotalTotal = () => {
+return carrito.reduce((total, producto)=> total + calcularSubtotal(producto), 0)
+}
+
 
 
   return (
@@ -78,7 +103,13 @@ function App() {
 
               <Route path='/Carrito' element={<>
                 <Header/>
-                <Carrito carrito={carrito }eliminarDelCarrito={eliminarDelCarrito} actualizarCantidad={actualizarCantidad} /> 
+                <Carrito carrito={carrito }
+                eliminarDelCarrito={eliminarDelCarrito}
+                actualizarCantidad={actualizarCantidad} 
+                incrementarCant={incrementarCant} 
+                decrementarCant={decrementarCant}
+                calcularSubtotal={calcularSubtotal}
+                calcularSubtotalTotal={calcularSubtotalTotal} /> 
               </>}
               />
 

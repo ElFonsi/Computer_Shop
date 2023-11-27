@@ -1,6 +1,31 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import './Singup.css'
+import axios from 'axios';
+
 const Singin = () => {
+    const [usuario, setUsuario] = useState({
+      nombre: '',
+      email: '',
+      contraseña: '',
+      confirmPassword: '',
+    });
+  
+    const handleRegister = async () => {
+      try {
+        const response = await axios.post('http://localhost:8080/registrarse', usuario);
+        console.log(response.data); // Puedes manejar la respuesta según tus necesidades
+      } catch (error) {
+        console.error('Error al registrar usuario:', error);
+      }
+    };
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setUsuario((prevUsuario) => ({ ...prevUsuario, [name]: value }));
+    };
+
+
     return (
         <div>
             <head>
@@ -24,30 +49,34 @@ const Singin = () => {
     <section id="section_body">
             <div class="signup-container">
         <h2>Registrarse</h2>
-        <form action="procesar-registro.php" method="POST">
+        <div>
             <div class="form-group">
                 <label for="username">Usuario:</label>
-                <input type="text" id="username" name="username" required/>
+                {/* <input type="text" id="username" name="username" required/> */}
+                <input type="text" name="nombre" placeholder="Nombre" onChange={handleChange} />
             </div>
             <div class="form-group">
                 <label for="email">Correo electrónico:</label>
-                <input type="email" id="email" name="email" required/>
+                {/* <input type="email" id="email" name="email" required/> */}
+                <input type="email" name="email" placeholder="Email" onChange={handleChange} />
             </div>
             <div class="form-group">
                 <label for="password">Contraseña:</label>
-                <input type="password" id="password" name="password" required/>
+                {/* <input type="password" id="password" name="password" required/> */}
+                <input type="password" name="contraseña" placeholder="Contraseña" onChange={handleChange} />
             </div>
             <div class="form-group">
                 <label for="password">Contraseña repetida:</label>
-                <input type="password" id="password" name="password" required/>
+                {/* <input type="password" id="password" name="password" required/> */}
+                <input type="password" name="confirmPassword" placeholder="Confirmar Contraseña" onChange={handleChange} />
             </div>
-            <button class="boton" type="submit">Registrarse</button>
-        </form>
+            <button class="boton" onClick={handleRegister}>Registrarse</button>
+        </div>
     </div>
 
     </section>        
         </div>
     );
-};
 
+}
 export default Singin;

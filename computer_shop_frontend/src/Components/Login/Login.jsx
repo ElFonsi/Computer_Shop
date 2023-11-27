@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 import './Login.css'
 
 const Login = () => {
+
+    const [usuario, setUsuario] = useState({
+        email: '',
+        contraseña: '',
+      });
+    
+      const handleLogin = async () => {
+        try {
+          const response = await axios.post('http://localhost:8080/login', usuario);
+          console.log(response.data); 
+        } catch (error) {
+          console.error('Error al iniciar sesión:', error);
+        }
+      };
+    
+      const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUsuario((prevUsuario) => ({ ...prevUsuario, [name]: value }));
+      };
+    
+
     return (
                 <div>
                     <head>
@@ -26,16 +48,18 @@ const Login = () => {
         <section id="section_body">
                     <div class="login-container">
                         <h2>Iniciar Sesion</h2>
-                <form action="procesar-login.php" method="">
+                <form action="http://localhost:3000/">
                     <div class="form-group">
-                        <label for="username">Usuario:</label>
-                        <input type="text" id="username" name="username" required/>
+                        <label for="username">Email:</label>
+                        {/* <input type="text" id="username" name="username" required/> */}
+                        <input type="email" name="email" placeholder="Email" onChange={handleChange} />
                     </div>
                     <div class="form-group">
                         <label for="password">Contraseña:</label>
-                        <input type="password" id="password" name="password" required/>
+                        {/* <input type="password" id="password" name="password" required/> */}
+                        <input type="password" name="contraseña" placeholder="Contraseña" onChange={handleChange} />
                     </div>
-                    <button class="boton" type="submit">Iniciar sesión</button>
+                    <button class="boton" onClick={handleLogin}>Iniciar sesión</button>
                 </form>
             </div>
         </section>
