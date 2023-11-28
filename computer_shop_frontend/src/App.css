@@ -121,6 +121,11 @@ footer{
   
 }
 
+#cerrar_sesion{
+  margin-top: 10px;
+  margin-left: -45px;
+}
+
 .links_footer:hover, .links:hover ,.div_img_menu:hover{
   transform: translateY(2px);
 }

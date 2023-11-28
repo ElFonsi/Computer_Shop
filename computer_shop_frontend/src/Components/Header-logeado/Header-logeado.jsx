@@ -3,6 +3,7 @@ import airplay from '../multimedia/airplay.svg'
 import search from '../multimedia/search.svg'
 import shoppingcart from '../multimedia/shopping-cart.svg'
 import {Link} from 'react-router-dom'
+import xcircle from '../multimedia/xcircle.svg'
 
 
 const Headerlogeado = () => {
@@ -46,6 +47,13 @@ const Headerlogeado = () => {
                         <Link to="/Login" class="links" target=""><li class="li_nav">Cambiar Cuenta</li></Link>
                     </ul>
                 </div>
+
+                <div class="div_links">
+                    <ul class="ul_nav">
+                        <Link to="/Login" class="links" target=""><img id="cerrar_sesion" src={xcircle} alt=""/></Link>
+                    </ul>
+                </div>
+
                 <div class="div_logo_tienda">
                     <Link to="/Carrito" class="links_img"><img id="Tienda" src={shoppingcart} alt="Tienda"/></Link>
                     <h4 id="Tienda_title">Carrito</h4>
