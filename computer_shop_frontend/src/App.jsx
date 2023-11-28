@@ -8,7 +8,9 @@ import MainSection from './Components/MainSection/MainSection';
 import Login from './Components/Login/Login'
 import Singup from './Components/Singup/Singup'
 import Carrito from './Components/Carrito/Carrito'
-import Resumen from './Components/resumen/resumen.jsx'
+// import Resumen from './Components/resumen/resumen.jsx'
+import Headerlogeado from './Components/Header-logeado/Header-logeado'
+import Categoriaslogeado from './Components/Categorias-logeado/Categorias-logeado'
 
 
 function App() {
@@ -94,7 +96,7 @@ return carrito.reduce((total, producto)=> total + calcularSubtotal(producto), 0)
 
               <Route path='/Categorias' element={<>
                 <Header/>
-                <Categorias agregarAlCarrito={agregarAlCarrito}/>
+                <Categorias/>
                 <Footer/>
               </>}
               />
@@ -106,7 +108,7 @@ return carrito.reduce((total, producto)=> total + calcularSubtotal(producto), 0)
               />
 
               <Route path='/Carrito' element={<>
-                <Header/>
+                <Headerlogeado/>
                 <Carrito carrito={carrito }
                 eliminarDelCarrito={eliminarDelCarrito}
                 actualizarCantidad={actualizarCantidad} 
@@ -124,9 +126,17 @@ return carrito.reduce((total, producto)=> total + calcularSubtotal(producto), 0)
               </>}
               />
 
-              <Route path='/resumen' element={<>
-                <Header/>
-                <Resumen></Resumen>
+              <Route path='/usuario-logeado' element={<>
+                <Headerlogeado/>
+                <MainSection/>
+                <Footer/>
+              </>}
+              />
+
+            <Route path='/categorias-logeado' element={<>
+                <Headerlogeado/>
+                <Categoriaslogeado agregarAlCarrito={agregarAlCarrito}/>
+                <Footer/>
               </>}
               />
               

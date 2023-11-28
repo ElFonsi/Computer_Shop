@@ -63,13 +63,13 @@ const CarroFiltrado = Object.values(carrito).map(({ id, quantity }) => ({ id, qu
                 </div>
                 ))}
                 <br />
-              <div id="cont_carrito">
+              <form id="cont_carrito">
 
                 <h3>El total de tu compra en el carrito de Computer Shop es: ${calcularSubtotalTotal().toFixed(2)} </h3>
                
                 <button id="enviar" onClick={handleCarrito}>Comprar</button>
 
-              </div>
+              </form>
                 
             </div>
 

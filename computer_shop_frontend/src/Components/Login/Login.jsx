@@ -48,7 +48,7 @@ const Login = () => {
         <section id="section_body">
                     <div class="login-container">
                         <h2>Iniciar Sesion</h2>
-                <form action="http://localhost:3000/">
+                <form action="http://localhost:3000/usuario-logeado">
                     <div class="form-group">
                         <label for="username">Email:</label>
                         {/* <input type="text" id="username" name="username" required/> */}

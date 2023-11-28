@@ -5,7 +5,7 @@ import airplay from '../multimedia/airplay.svg'
 import axios from 'axios'
 
 
-function Categorias({ agregarAlCarrito }) {
+function Categoriaslogeado({ agregarAlCarrito }) {
     const [data, setData] = useState([]);
     useEffect(() => {
         const fetchData = async () => {
@@ -46,7 +46,7 @@ function Categorias({ agregarAlCarrito }) {
                     <h6>{producto.nombre}</h6>
                     <h4 class="descripcion_prod">{producto.descripcion}</h4>
                     <h5 class="precio">${producto.precio}</h5>
-                    {/* <button class="agregar_producto" onClick={() => agregarAlCarrito(producto)}><div class="Agregar"><h5>Agregar</h5></div></button>                  */}
+                    <button class="agregar_producto" onClick={() => agregarAlCarrito(producto)}><div class="Agregar"><h5>Agregar</h5></div></button>                 
                 </div>
                 ))}
             </div>
@@ -64,4 +64,4 @@ function Categorias({ agregarAlCarrito }) {
     }
 
 
-export default Categorias;
+export default Categoriaslogeado;

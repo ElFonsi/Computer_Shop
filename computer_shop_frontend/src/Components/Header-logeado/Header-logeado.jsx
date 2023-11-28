@@ -5,7 +5,7 @@ import shoppingcart from '../multimedia/shopping-cart.svg'
 import {Link} from 'react-router-dom'
 
 
-const Header = () => {
+const Headerlogeado = () => {
     return (
         <div>
             <head>
@@ -28,12 +28,12 @@ const Header = () => {
             </head>
         <nav class="nav_main">
                 <div class="div_logo_titulo">
-                    <Link to="/" class="links_img"><img id="Logo" src={airplay} alt="Logo"/></Link>
+                    <Link to="/usuario-logeado" class="links_img"><img id="Logo" src={airplay} alt="Logo"/></Link>
                     <h1 id="title">Computer Shop</h1>
                 </div>
                 <div class="div_links">
                     <ul class="ul_nav_2">
-                        <Link to='/Categorias' class="links" target=""><li class="li_nav">Categorias</li></Link>
+                        <Link to='/categorias-logeado' class="links" target=""><li class="li_nav">Categorias</li></Link>
                         <a class="links"href=""><li class="li_nav">Redes Sociales</li></a>
                     </ul>
                 </div>
@@ -43,14 +43,13 @@ const Header = () => {
                 </div>
                 <div class="div_links">
                     <ul class="ul_nav">
-                        <Link to="/Login" class="links" target=""><li class="li_nav">Ingresar</li></Link>
-                        <Link to="/Singup" class="links" target=""><li class="li_nav">Registrarse</li></Link>
+                        <Link to="/Login" class="links" target=""><li class="li_nav">Cambiar Cuenta</li></Link>
                     </ul>
                 </div>
-                {/* <div class="div_logo_tienda">
+                <div class="div_logo_tienda">
                     <Link to="/Carrito" class="links_img"><img id="Tienda" src={shoppingcart} alt="Tienda"/></Link>
                     <h4 id="Tienda_title">Carrito</h4>
-                </div> */}
+                </div>
             </nav>
             
         </div>
@@ -58,4 +57,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default Headerlogeado;
