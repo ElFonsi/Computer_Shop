@@ -19,15 +19,18 @@ function Carrito({carrito, eliminarDelCarrito, incrementarCant, decrementarCant,
   //   }
   // } 
 
+
+
 const CarroFiltrado = Object.values(carrito).map(({ id, cantidad }) => ({ id, cantidad }));
   
   const cartJson = JSON.stringify(CarroFiltrado);
 
   const handleCarrito = async () => {
+
       if (cartJson !== "[]") {
           try {
               await axios.post('http://localhost:8080/comprar', {cartJson});
-              alert('Articulos comprados exitosamente');
+              window.alert('Articulos comprados exitosamente');
               vaciarCarrito()
           } catch (err) {
               alert('Error al realizar la compra');

@@ -5,7 +5,7 @@ import airplay from '../multimedia/airplay.svg'
 import axios from 'axios'
 
 
-function Categorias({ agregarAlCarrito }) {
+function Categorias() {
     const [data, setData] = useState([]);
     useEffect(() => {
         const fetchData = async () => {

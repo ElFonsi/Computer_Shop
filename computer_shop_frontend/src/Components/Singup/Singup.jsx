@@ -2,8 +2,10 @@
 import React, { useState } from 'react';
 import './Singup.css'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Singin = () => {
+    const navegar = useNavigate();
     const [usuario, setUsuario] = useState({
       nombre: '',
       email: '',
@@ -11,20 +13,33 @@ const Singin = () => {
       confirmPassword: '',
     });
   
+    const [errorEmail, setErrorEmail] = useState('');
+
     const handleRegister = async () => {
       try {
         const response = await axios.post('http://localhost:8080/registrarse', usuario);
-        console.log(response.data); // Puedes manejar la respuesta según tus necesidades
+        console.log(response.data);
         window.alert('Usuario registrado correctamente')
+        navegar('/Login');
       } catch (error) {
         console.error('Error al registrar usuario:', error);
-        window.alert('Las contraseñas no coinciden')
+        window.alert('Error al registrar usuario')
       }
     };
   
     const handleChange = (e) => {
       const { name, value } = e.target;
       setUsuario((prevUsuario) => ({ ...prevUsuario, [name]: value }));
+
+      if (name === 'email') {
+        const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!regex.test(value)) {
+            setErrorEmail('Por favor, introduce una dirección de correo electrónico válida.');
+        } else {
+            setErrorEmail('');
+        }
+    }
+
     };
 
 
@@ -60,7 +75,8 @@ const Singin = () => {
             <div class="form-group">
                 <label for="email">Correo electrónico:</label>
                 {/* <input type="email" id="email" name="email" required/> */}
-                <input type="email" name="email" placeholder="Email" onChange={handleChange} />
+                <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
+                <span style={{ color: 'red' }}>{errorEmail}</span>
             </div>
             <div class="form-group">
                 <label for="password">Contraseña:</label>
@@ -78,6 +94,8 @@ const Singin = () => {
 
     </section>        
         </div>
+
+  
     );
 
 }
