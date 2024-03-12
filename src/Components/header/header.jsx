@@ -1,4 +1,4 @@
-import React from 'react';
+
 import airplay from '../multimedia/airplay.svg'
 import search from '../multimedia/search.svg'
 import shoppingcart from '../multimedia/shopping-cart.svg'
@@ -6,9 +6,25 @@ import {Link} from 'react-router-dom'
 import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios'
 
 const Header = () => {
+
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/productos');
+                setData(response.data);
+            } catch (error) {
+                console.error('Error:', error);
+            }
+        };
+
+        fetchData();
+    }, []);
+
     return (
 
         <><div>
@@ -50,7 +66,7 @@ const Header = () => {
                     freeSolo
                     id="free-solo-2-demo"
                     disableClearable
-                    options={top100Films.map((option) => option.title)}
+                    options={data.map((option) => option.nombre)}
                     renderInput={(params) => (
                         <TextField
                             {...params}
@@ -78,18 +94,18 @@ const Header = () => {
     );
 };
 
-const top100Films = [
-    { title: 'The Shawshank Redemption', year: 1994 },
-    { title: 'The Godfather', year: 1972 },
-    { title: 'The Godfather: Part II', year: 1974 },
-    { title: 'The Dark Knight', year: 2008 },
-    { title: '12 Angry Men', year: 1957 },
-    { title: "Schindler's List", year: 1993 },
-    { title: 'Pulp Fiction', year: 1994 },
-    {
-      title: 'The Lord of the Rings: The Return of the King',
-      year: 2003,
-    }
-];
+// const top100Films = [
+//     { title: 'The Shawshank Redemption', year: 1994 },
+//     { title: 'The Godfather', year: 1972 },
+//     { title: 'The Godfather: Part II', year: 1974 },
+//     { title: 'The Dark Knight', year: 2008 },
+//     { title: '12 Angry Men', year: 1957 },
+//     { title: "Schindler's List", year: 1993 },
+//     { title: 'Pulp Fiction', year: 1994 },
+//     {
+//       title: 'The Lord of the Rings: The Return of the King',
+//       year: 2003,
+//     }
+// ];
 
 export default Header;
