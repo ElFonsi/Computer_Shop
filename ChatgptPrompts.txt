@@ -1,0 +1,51 @@
+¿Como entiende Chatgpt los prompts?
+
+Entiende los "prompts" como instrucciones o peticiones de entrada que le 
+indican qué tipo de respuesta se espera.
+
+Utiliza técnicas de procesamiento de lenguaje natural (NLP) y aprendizaje automático para interpretar el 
+significado del prompt y generar una respuesta coherente y relevante en función de esa entrada.
+
+
+Dentro del algoritmo de GPT para predecir palabra tras palabra, 
+¿como se realiza este procedimiento?
+
+El algoritmo GPT (Generative Pre-trained Transformer) utiliza un proceso llamado "decodificación autoregresiva"
+para predecir palabra tras palabra en una secuencia de texto. Aquí hay un resumen del procedimiento:
+
+Inicialización del modelo: El modelo GPT se inicializa con una secuencia de inicio especial que indica el 
+comienzo del texto (por ejemplo, "<start>"). Esta secuencia se pasa al modelo como entrada inicial.
+
+Generación de tokens: El modelo genera una distribución de probabilidad sobre todos los posibles tokens 
+en el vocabulario en función de la entrada inicial. Utiliza la arquitectura de Transformer para calcular 
+las representaciones de los tokens y luego una capa de clasificación para obtener las probabilidades 
+asociadas a cada token.
+
+Selección de palabra: Se selecciona una palabra de acuerdo con la distribución de probabilidad 
+generada por el modelo. Esta palabra se agrega a la secuencia generada hasta el momento.
+
+Actualización de la entrada: La secuencia generada se actualiza con la nueva palabra seleccionada. 
+Esta secuencia actualizada se convierte en la entrada para el siguiente paso de generación.
+
+Repetición del proceso: Se repiten los pasos 2 a 4 hasta que se alcance una longitud deseada 
+para la secuencia generada o se genere una palabra de finalización especial (por ejemplo, "<end>") 
+que indica el final del texto.
+
+¿Como emite respuestas Chatgpt?
+
+
+ChatGPT emite respuestas utilizando un proceso similar al que se utiliza en el algoritmo GPT 
+para predecir palabra tras palabra en una secuencia de texto.Donde utiliza el contexto proporcionado 
+por el prompt para generar respuestas coherentes y relevantes.
+
+¿A qué equivale una palabra en el prompt?
+
+Se utiliza una representación tokenizada del texto(en este caso la palabra que estariamos ingresando) 
+en lugar de una representación basada en palabras exactas.
+
+La tokenización es el proceso de dividir el texto en unidades más pequeñas llamadas "tokens", que pueden 
+ser palabras individuales, subpalabras o incluso caracteres. Estos tokens son unidades discretas que el 
+modelo puede procesar de manera más eficiente que el texto sin procesar.
+
+En resumen, una "palabra" en el prompt es una unidad de texto que se ha tokenizado y se utiliza como 
+entrada para el modelo de lenguaje.
