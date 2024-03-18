@@ -49,3 +49,27 @@ modelo puede procesar de manera más eficiente que el texto sin procesar.
 
 En resumen, una "palabra" en el prompt es una unidad de texto que se ha tokenizado y se utiliza como 
 entrada para el modelo de lenguaje.
+
+------------------------------------------------------------------
+
+Supongamos que tenemos la siguiente oración como parte del prompt:
+
+"El gato está durmiendo en la cama."
+
+Cuando esta oración se tokeniza, podría dividirse en los siguientes tokens:
+
+"El"
+"gato"
+"está"
+"durmiendo"
+"en"
+"la"
+"cama"
+"."
+Cada uno de estos elementos es un token que representa una parte específica de la oración original. 
+Estos tokens pueden ser palabras individuales en el caso de palabras completas como "gato" o "cama", 
+o incluso pueden ser signos de puntuación como ".".
+
+En el contexto de modelos de lenguaje como ChatGPT, este tipo de tokens se utilizan como entrada para 
+el modelo durante el proceso de generación de texto. El modelo trabaja con estos tokens para generar 
+respuestas coherentes y relevantes basadas en el contexto proporcionado por el prompt.
