@@ -66,6 +66,7 @@ Cuando esta oración se tokeniza, podría dividirse en los siguientes tokens:
 "la"
 "cama"
 "."
+
 Cada uno de estos elementos es un token que representa una parte específica de la oración original. 
 Estos tokens pueden ser palabras individuales en el caso de palabras completas como "gato" o "cama", 
 o incluso pueden ser signos de puntuación como ".".
@@ -73,3 +74,7 @@ o incluso pueden ser signos de puntuación como ".".
 En el contexto de modelos de lenguaje como ChatGPT, este tipo de tokens se utilizan como entrada para 
 el modelo durante el proceso de generación de texto. El modelo trabaja con estos tokens para generar 
 respuestas coherentes y relevantes basadas en el contexto proporcionado por el prompt.
+
+Si estamos utilizando un modelo de lenguaje con tokenización basada en subpalabras, el token "esta" 
+podría descomponerse en subpalabras como "es" y "ta". Esto permite al modelo capturar mejor la estructura 
+morfológica de las palabras.
