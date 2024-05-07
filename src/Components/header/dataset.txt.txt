@@ -1,0 +1,1 @@
+memoria,ram,tarjeta,teclado,mouse,pantalla
