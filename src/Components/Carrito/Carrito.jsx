@@ -21,9 +21,10 @@ function Carrito({carrito, eliminarDelCarrito, incrementarCant, decrementarCant,
 
 
 
-const CarroFiltrado = Object.values(carrito).map(({ id, cantidad }) => ({ id, cantidad }));
+const CarroFiltrado = Object.values(carrito).map(({ id, nombre, cantidad, precio }) => ({ id, nombre, cantidad, precio }));
   
   const cartJson = JSON.stringify(CarroFiltrado);
+  
 
   const handleCarrito = async () => {
 
