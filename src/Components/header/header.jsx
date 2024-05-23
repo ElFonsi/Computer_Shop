@@ -8,7 +8,6 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'
-import { setup } from './script';
 
 const Header = () => {
 
@@ -24,7 +23,6 @@ const Header = () => {
         };
 
         fetchData();
-        setup()
     }, []);
 
     return (
@@ -59,28 +57,10 @@ const Header = () => {
                         <a class="links" href=""><li class="li_nav">Redes Sociales</li></a>
                     </ul>
                 </div>
-                <div class="navegador">
-                    <img src={search} alt="" id="logo_buscar" />
-                    {/* <input id="buscar" type="text" placeholder="Buscar..." /> */}
-                    <TextField id="pred_features" label="Products" />
-					<TextField id="pred_labels" readonly/>
-                </div> 
-                {/* <Stack spacing={2} sx={{ width: 300 }}>
-                <Autocomplete
-                    freeSolo
-                    id="free-solo-2-demo"
-                    disableClearable
-                    options={data.map((option) => option.nombre)}
-                    renderInput={(params) => (
-                        <TextField 
-                            {...params}
-                            label="Search input"
-                            InputProps={{
-                                ...params.InputProps,
-                                type: 'search',
-                            }} />
-                    )} />
-            </Stack> */}
+                <div class="navegador"> 
+                    <img src={search} alt="" id="logo_buscar"/>
+                    <input id="buscar" type="text" placeholder="Buscar..."/>
+                </div>
                 <div class="div_links">
                     <ul class="ul_nav">
                         <Link to="/Login" class="links" target=""><li class="li_nav">Ingresar</li></Link>
